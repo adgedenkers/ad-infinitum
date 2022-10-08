@@ -1,3 +1,4 @@
+aniso8601==9.0.1
 astroid==2.12.10
 attrs==22.1.0
 black==22.8.0
@@ -17,7 +18,9 @@ distlib==0.3.6
 dulwich==0.20.46
 filelock==3.8.0
 Flask==2.2.2
+Flask-Cors==3.0.10
 flask-marshmallow==0.14.0
+flask-restplus==0.13.0
 Flask-SQLAlchemy==2.5.1
 future==0.18.2
 greenlet==1.1.3
@@ -74,6 +77,8 @@ requests-toolbelt==0.9.1
 shellingham==1.5.0
 six==1.16.0
 SQLAlchemy==1.4.41
+swagger-ui==0.1.2
+swagger-ui-bundle==0.0.9
 tomli==2.0.1
 tomlkit==0.11.4
 treelib==1.6.1
