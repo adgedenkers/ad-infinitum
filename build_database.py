@@ -1,6 +1,7 @@
+import datetime
 import os
-from config import db       # imports db instance from config.py
-from models import Person   # imports Person class from models.py
+from config import db  # imports db instance from config.py
+from models import Person  # imports Person class from models.py
 
 # Data to initialize database with
 PEOPLE = [
@@ -11,8 +12,8 @@ PEOPLE = [
         "last_name": "Denkers",
         "middle_name": "Harold",
         "suffix": "",
-        "birth_date": "1977-11-22 08:45:22-0500",
-        "age": 45
+        "birth_date": datetime.datetime(1977, 11, 22, 8, 45, 22),
+        "age": 45,
     },
     {
         "person_id": 2,
@@ -21,8 +22,8 @@ PEOPLE = [
         "last_name": "Denkers",
         "middle_name": "Lydia",
         "suffix": "",
-        "birth_date": "1978-08-19 14:02:22-0400",
-        "age": 45
+        "birth_date": datetime.datetime(1978, 8, 19, 14, 2, 22),
+        "age": 45,
     },
     {
         "person_id": 3,
@@ -31,22 +32,33 @@ PEOPLE = [
         "last_name": "Denkers",
         "middle_name": "Adriaan",
         "suffix": "",
-        "birth_date": "2010-09-08 14:19:22-0400",
-        "age": 12
-    }
+        "birth_date": datetime.datetime(2010, 9, 8, 14, 19, 22),
+        "age": 12,
+    },
 ]
 
 # Delete the database file if it exists currently
 if os.path.exists("people.db"):
     os.remove("people.db")
 
-#Create the database
+# Create the database
 db.create_all()
 
 # Iterate over the PEOPLE structure and populate the database
 for person in PEOPLE:
-    p = Person(person_id=person["person_id"], name=person["name"], first_name=person["first_name"], last_name=person["last_name"], middle_name=person["middle_name"], suffix=person["suffix"], birth_date=person["birth_date"], age=person["age"])
-    db.session.add(p)   # despite doing db.session.add(p), we've only added p to the database session, not the database itself
+    p = Person(
+        person_id=person["person_id"],
+        name=person["name"],
+        first_name=person["first_name"],
+        last_name=person["last_name"],
+        middle_name=person["middle_name"],
+        suffix=person["suffix"],
+        birth_date=person["birth_date"],
+        age=person["age"],
+    )
+    db.session.add(
+        p
+    )  # despite doing db.session.add(p), we've only added p to the database session, not the database itself
 
 # Commit changes to the database
 db.session.commit()

@@ -11,7 +11,7 @@ class Person(db.Model):
     last_name = db.Column(db.String(80), nullable=False)
     middle_name = db.Column(db.String(80), nullable=True)
     suffix = db.Column(db.String(80), nullable=True)
-    birth_date = db.Column(db.DateTime, default=datetime.utcnow, nullable=True)
+    birth_date = db.Column(db.DateTime, nullable=True)
     age = db.Column(db.Integer, nullable=True)
     timestamp = db.Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
 
