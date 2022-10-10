@@ -1,14 +1,7 @@
+from datetime import datetime
 
-# System Modules
-import datetime
-
-# Third Party Modules
-import marshmallow as ma
-import sqlalchemy as db
-
-def get_timestamp():
-    """Returns the current timestamp"""
-    return datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+# import the db and ma instances from the main application module
+from config import db, ma
 
 class Person(db.Model):
     __tablename__ = 'person'
@@ -17,6 +10,7 @@ class Person(db.Model):
     first_name = db.Column(db.String(80), nullable=False)
     last_name = db.Column(db.String(80), nullable=False)
     middle_name = db.Column(db.String(80), nullable=True)
+    suffix = db.Column(db.String(80), nullable=True)
     birth_date = db.Column(db.DateTime, default=datetime.utcnow, nullable=True)
     age = db.Column(db.Integer, nullable=True)
     timestamp = db.Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
@@ -25,3 +19,4 @@ class PersonSchema(ma.Schema):
     class Meta:
         model = Person
         sqla_session = db.session
+
