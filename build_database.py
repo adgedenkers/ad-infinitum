@@ -5,7 +5,7 @@ from models import Person   # imports Person class from models.py
 # Data to initialize database with
 PEOPLE = [
     {
-        "id": 1,
+        "person_id": 1,
         "name": "Adge",
         "first_name": "Adriaan",
         "last_name": "Denkers",
@@ -15,7 +15,7 @@ PEOPLE = [
         "age": 45
     },
     {
-        "id ": 2,
+        "person_id": 2,
         "name": "Becky",
         "first_name": "Rebecca",
         "last_name": "Denkers",
@@ -25,7 +25,7 @@ PEOPLE = [
         "age": 45
     },
     {
-        "id": 3,
+        "person_id": 3,
         "name": "Fitz",
         "first_name": "Fitzgerald",
         "last_name": "Denkers",
